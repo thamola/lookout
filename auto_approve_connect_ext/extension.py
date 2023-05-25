@@ -113,10 +113,10 @@ class AutoApprovalExtensionExtension(Extension):
             random_function = random_function(param)
 
         ### Get purchase request 
-        request = self.client.requests[request_id].get()
+        request_ful = self.client.requests[request_id].get()
         
         # Loops over items in subscription
-        for item in request['asset']['items']:
+        for item in request_ful['asset']['items']:
             if item['mpn'] == '1001' and item['quantity'] > 0:
                 param_value = 'Standard Trial'
                 await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": "SubscriptionType", "value": param_value}]}})
@@ -144,9 +144,9 @@ class AutoApprovalExtensionExtension(Extension):
 
         ### END INSERTION                
                 
-        await self.client.requests[request_id].update(
-            payload={"asset": {"params": [{"id": parameter_id, value_type: random_function()}]}}
-        )
+        ### await self.client.requests[request_id].update(
+            ### payload={"asset": {"params": [{"id": parameter_id, value_type: random_function()}]}}
+        ### )
 
     async def _get_single_product_fulfillment_template(self, product_id: str) -> str:
         """Check the list of templates, if there are more than one - raise ValueError, otherwise - return the single
