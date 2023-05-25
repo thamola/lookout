@@ -113,10 +113,10 @@ class AutoApprovalExtensionExtension(Extension):
             random_function = random_function(param)
 
         ### Get purchase request 
-        request_ful = self.client.requests[request_id].get()
+        request = await self.client.requests[request_id].get()
         
         # Loops over items in subscription
-        for item in request_ful['asset']['items']:
+        for item in request['asset']['items']:
             if item['mpn'] == '1001' and item['quantity'] > 0:
                 param_value = 'Standard Trial'
                 await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": "SubscriptionType", "value": param_value}]}})
