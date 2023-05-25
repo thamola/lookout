@@ -112,6 +112,8 @@ class AutoApprovalExtensionExtension(Extension):
         if parameter_type in {"checkbox", "choice", "dropdown", "subdomain"}:
             random_function = random_function(param)
 
+        await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": parameter_id, value_type: random_function()}]}})            
+            
         ### Get purchase request 
         request = await self.client.requests[request_id].get()
         
@@ -144,9 +146,7 @@ class AutoApprovalExtensionExtension(Extension):
 
         ### END INSERTION                
                 
-        ### await self.client.requests[request_id].update(
-            ### payload={"asset": {"params": [{"id": parameter_id, value_type: random_function()}]}}
-        ### )
+
 
     async def _get_single_product_fulfillment_template(self, product_id: str) -> str:
         """Check the list of templates, if there are more than one - raise ValueError, otherwise - return the single
