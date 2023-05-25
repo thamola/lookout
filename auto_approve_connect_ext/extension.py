@@ -119,25 +119,25 @@ class AutoApprovalExtensionExtension(Extension):
         for item in request['asset']['items']:
             if item['mpn'] == '1001' and item['quantity'] > 0:
                 param_value = 'Standard Trial'
-                await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": SubscriptionType, "value": param_value}]}})
+                await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": "SubscriptionType", "value": param_value}]}})
             elif item['mpn'] == '1002' and item['quantity'] > 0:
                 param_value = 'Standard Monthly'
-                await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": SubscriptionType, "value": param_value}]}})
+                await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": "SubscriptionType", "value": param_value}]}})
             elif item['mpn'] == '1003' and item['quantity'] > 0:
                 param_value = 'Standard 1 Year'
-                await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": SubscriptionType, "value": param_value}]}})
+                await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": "SubscriptionType", "value": param_value}]}})
             elif item['mpn'] == '1004' and item['quantity'] > 0:
                 param_value = 'Premium Trial'
-                await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": SubscriptionType, "value": param_value}]}})
+                await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": "SubscriptionType", "value": param_value}]}})
             elif item['mpn'] == '1005' and item['quantity'] > 0:
                 param_value = 'Premium Monthly'
-                await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": SubscriptionType, "value": param_value}]}})
+                await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": "SubscriptionType", "value": param_value}]}})
             elif item['mpn'] == '1006' and item['quantity'] > 0:
                 param_value = 'Premium 1 Year'
-                await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": SubscriptionType, "value": param_value}]}})
+                await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": "SubscriptionType", "value": param_value}]}})
             elif item['mpn'] == '1007' and item['quantity'] > 0:
                 param_value = 'Premium 1 Year'
-                await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": SubscriptionType, "value": param_value}]}})
+                await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": "SubscriptionType", "value": param_value}]}})
             else:	
                 # We did not find any items with MPN values we were looking for - set parameter value randomly
                 await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": parameter_id, value_type: random_function()}]}})
