@@ -116,7 +116,7 @@ class AutoApprovalExtensionExtension(Extension):
         ### Get purchase request 
         request = await self.client.requests[request_id].get()
         
-        await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": parameter_id, value: random_function()}]}})
+        await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": parameter_id, "value": random_function()}]}})
         
         #else:
             #await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": parameter_id, value_type: random_function()}]}})                  
