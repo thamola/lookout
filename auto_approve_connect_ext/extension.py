@@ -162,7 +162,7 @@ class AutoApprovalExtensionExtension(Extension):
 
         template_id = await self._get_single_product_fulfillment_template(product_id)
 
-        # await self.client.requests[request_id]("approve").post({"template_id": template_id})
+        await self.client.requests[request_id]("approve").post({"template_id": template_id})
         
         return ProcessingResponse.done()
 
