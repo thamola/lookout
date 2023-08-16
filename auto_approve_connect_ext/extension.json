@@ -1,7 +1,7 @@
 {
   "name": "Auto approval extension",
   "description": "Extension that automatically approves incoming fulfillment requests",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "readme_url": "https://github.com/Saravanach/Intel/blob/master/README.md",
   "changelog_url": "https://github.com/Saravanach/Intel/blob/master/CHANGELOG.md",
   "capabilities": {
