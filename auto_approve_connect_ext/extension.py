@@ -116,11 +116,8 @@ class AutoApprovalExtensionExtension(Extension):
         ### Get purchase request 
         request = await self.client.requests[request_id].get()
         
-        # Loops over items in subscription
-        #if parameter_id == 'SubscriptionType':
-        for item in request['asset']['items']:
-            # We did not find any items with MPN values we were looking for - set parameter value randomly
-            await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": parameter_id, value_type: random_function()}]}})
+        await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": parameter_id, value: random_function()}]}})
+        
         #else:
             #await self.client.requests[request_id].update(payload={"asset": {"params": [{"id": parameter_id, value_type: random_function()}]}})                  
 
